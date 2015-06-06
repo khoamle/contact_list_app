@@ -1,10 +1,18 @@
-<h1>Individual Contact Info</h1>
-<h2>First Name: <%= @contact.first_name %></h2>
-<h2>Last Name: <%= @contact.last_name %></h2>
-<h2>Email: <%= @contact.email %></h2>
-<h2>Phone Number: <%= @contact.phone_number %></h2>
+<div class="container">
+  <h1>Individual Contact Info</h1>
+  <h4>First Name: <%= @contact.first_name %></h4>
+  <h4>Middle Name: <%= @contact.middle_name %></h4>
+  <h4>Last Name: <%= @contact.last_name %></h4>
+  <h4>Email: <%= @contact.email %></h4>
+  <h4>Phone Number: <%= @contact.phone_number %></h4>
+  <h4>Address: <%= @contact.address %></h4>
+  <h4>Bio: <%= @contact.bio %></h3>
+  <h4>Your full name is: <%= @contact.full_name %></h4>
+  <h4>Your jap phone number is: <%= @contact.jap_phone_zone %></h4>
+  <h4>Last Updated at: <%= @contact.friendly_time %></h4>
+  <br><br>
+    <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-info" role="button">Edit</a>
+    <a rel="nofollow" data-method="delete" href="/contacts/<%= @contact.id %>", class="btn btn-info" role="button">Delete</a>
+  </div>
 
-<%= link_to "Edit", "/contacts/#{@contact.id}/edit" %>
-<hr>
-<%= link_to "Delete", "/contacts/#{@contact.id}", method: :delete %>
-
+</div>
