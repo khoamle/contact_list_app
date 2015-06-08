@@ -11,8 +11,8 @@
   <h4>Your jap phone number is: <%= @contact.jap_phone_zone %></h4>
   <h4>Last Updated at: <%= @contact.friendly_time %></h4>
   <br><br>
+  <div>
     <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-info" role="button">Edit</a>
     <a rel="nofollow" data-method="delete" href="/contacts/<%= @contact.id %>", class="btn btn-info" role="button">Delete</a>
   </div>
-
 </div>

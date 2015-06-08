@@ -31,8 +31,13 @@ class ContactsController < ApplicationController
   def destroy
     @contact = Contact.find_by(id: params[:id])
     @contact.destroy
-    flash[:success] = "Contact sucessfully deleted!"
+    flash[:warning] = "Contact sucessfully deleted!"
     redirect_to "/contacts"
+  end
+  def search
+    search_term = params[:search]
+    @contacts = Contact.where("first_name LIKE ? or middle_name LIKE ? or last_name LIKE ? or email LIKE ? or phone_number LIKE ? or bio LIKE ?", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%", "%#{search_term}%")
+    render :index
   end
 
 end

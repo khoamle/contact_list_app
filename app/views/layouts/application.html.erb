@@ -38,6 +38,16 @@
             <li><a href="#">One more separated link</a></li>
           </ul>
         </li>
+
+        <%= form_tag "/search", method: :post, class: "navbar-form navbar-right", role: "search" do %>
+        <div class="form-group">
+         <%= label_tag :search %>
+         <%= text_field_tag :search, '', class: "form_control" %>
+        </div>
+          <%= submit_tag "Search", class: "btn btn-default", type: "submit" %>
+        <% end %>
+
+        
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#">Link</a></li>
