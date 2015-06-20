@@ -1,18 +1,19 @@
-<div class="container">
-  <h1>Individual Contact Info</h1>
-  <h4>First Name: <%= @contact.first_name %></h4>
-  <h4>Middle Name: <%= @contact.middle_name %></h4>
-  <h4>Last Name: <%= @contact.last_name %></h4>
-  <h4>Email: <%= @contact.email %></h4>
-  <h4>Phone Number: <%= @contact.phone_number %></h4>
-  <h4>Address: <%= @contact.address %></h4>
-  <h4>Bio: <%= @contact.bio %></h3>
-  <h4>Your full name is: <%= @contact.full_name %></h4>
-  <h4>Your jap phone number is: <%= @contact.jap_phone_zone %></h4>
-  <h4>Last Updated at: <%= @contact.friendly_time %></h4>
-  <br><br>
-  <div>
-    <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-info" role="button">Edit</a>
-    <a rel="nofollow" data-method="delete" href="/contacts/<%= @contact.id %>", class="btn btn-info" role="button">Delete</a>
-  </div>
+<h1>Individual Contact Info</h1>
+<h4>First Name: <%= @contact.first_name %></h4>
+<h4>Middle Name: <%= @contact.middle_name %></h4>
+<h4>Last Name: <%= @contact.last_name %></h4>
+<h4>Email: <%= @contact.email %></h4>
+<h4>Phone Number: <%= @contact.phone_number %></h4>
+<h4>Address: <%= @contact.address %></h4>
+<h4>Bio: <%= @contact.bio %></h3>
+<h4>Your full name is: <%= @contact.full_name %></h4>
+<h4>Your jap phone number is: <%= @contact.jap_phone_zone %></h4>
+<h4>Last Updated at: <%= @contact.friendly_time %></h4>
+<h4> Groups that <%= @contact.first_name %> belongs to:
+  <p><br><%= @contact.groups.pluck(:name).join(", ") %></p></h4>
+<br><br>
+<div>
+  <a href="/contacts/<%= @contact.id %>/edit" class="btn btn-info" role="button">Edit</a>
+  <a rel="nofollow" data-method="delete" href="/contacts/<%= @contact.id %>", class="btn btn-info" role="button">Delete</a>
 </div>
+
