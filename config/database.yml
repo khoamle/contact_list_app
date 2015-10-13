@@ -23,3 +23,5 @@ test:
 production:
   <<: *default
   database: contact_list_app_production
+  username: contact_list_app
+  password: <%= ENV['CONTACT_LIST_DATABASE_PASSWORD'] %>
