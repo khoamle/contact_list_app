@@ -1,27 +1,40 @@
-<h1>All contacts</h1>
+<div ng-app="app">
 
-<div class="table-responsive">
-  <table class="table table-bordered table-striped table-hover">
-    <thead>
-      <tr class="info">
-        <td>First Name</td>
-        <td>Last Name</td>
-        <td>Email</td>
-        <td>Address</td>
-        <td>Phone Number</td>
-      </tr>
-    </thead>
-      <% @contacts.each do |contact| %> 
-      <tr>
-        <td><%= contact.first_name %></td>
-        <td><%= contact.last_name %></td>
-        <td><%= contact.email %></td>
-        <td><%= contact.address %></td>
-        <td><%= contact.phone_number %></td>
-      </tr>
-      <% end %>
-  </table>
+  <h1>All contacts</h1>
+
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+
+        <input type="text" class="form-control" placeholder="Search contacts" ng-model="search">
+
+      </div>      
+    </div>
+  </form>
+
+  <div class="table-responsive">
+    <table class="table table-bordered table-striped table-hover">
+      <thead>
+        <tr class="info">
+          <td>First Name</td>
+          <td>Last Name</td>
+          <td>Email</td>
+          <td>Address</td>
+          <td>Phone Number</td>
+        </tr>
+      </thead>
+        <% @contacts.each do |contact| %> 
+        <tr>
+          <td><%= contact.first_name %></td>
+          <td><%= contact.last_name %></td>
+          <td><%= contact.email %></td>
+          <td><%= contact.address %></td>
+          <td><%= contact.phone_number %></td>
+        </tr>
+        <% end %>
+    </table>
+  </div>
+
+
 </div>
-
-
-

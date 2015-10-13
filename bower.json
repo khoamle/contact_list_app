@@ -1,0 +1,19 @@
+{
+  "name": "contact_list_app",
+  "version": "0.0.0",
+  "homepage": "https://github.com/khoamle/contact_list_app",
+  "authors": [
+    "Khoa Le <khoaminhle5@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
