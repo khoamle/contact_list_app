@@ -1,19 +1,27 @@
 <h1>All contacts</h1>
 
-<div class="row">
-  <% @contacts.each do |contact| %>
-    <div class="col-md-4" style="border: 1px solid black">
-      <h4>First Name: <%= link_to contact.first_name, "/contacts/#{contact.id}" %></h4>
-      <h4>Middle Name: <%= contact.middle_name %></h4>
-      <h4>Last Name: <%= contact.last_name %></h4>
-      <h4>Email: <%= contact.email %></h4>
-      <h4>Phone Number: <%= contact.phone_number %></h4>
-      <h4>Bio: <%= contact.bio %></h4>
-      <h4>Your full name is: <%= contact.full_name %></h4>
-      <h4>Address: <%= contact.address %>
-      <br><br>       
-      <p><a class="btn btn-primary btn-lg" href="/contacts/<%= contact.id %>" role="button">Click for more info</a></p>
-      <br><br>
-    </div>
-  <% end %>
+<div class="table-responsive">
+  <table class="table table-bordered table-striped table-hover">
+    <thead>
+      <tr class="info">
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Email</td>
+        <td>Address</td>
+        <td>Phone Number</td>
+      </tr>
+    </thead>
+      <% @contacts.each do |contact| %> 
+      <tr>
+        <td><%= contact.first_name %></td>
+        <td><%= contact.last_name %></td>
+        <td><%= contact.email %></td>
+        <td><%= contact.address %></td>
+        <td><%= contact.phone_number %></td>
+      </tr>
+      <% end %>
+  </table>
 </div>
+
+
+
