@@ -1,4 +1,4 @@
-34class AddBioToContacts < ActiveRecord::Migration
+class AddBioToContacts < ActiveRecord::Migration
   def change
     add_column :contacts, :bio, :text
   end
