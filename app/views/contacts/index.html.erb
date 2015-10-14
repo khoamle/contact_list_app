@@ -1,40 +1,47 @@
 <div ng-app="app">
 
-  <h1>All contacts</h1>
+  <div ng-controller="contactsCtrl" ng-init="setup()">
 
-  <form>
-    <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+    <h1>All contacts</h1>
 
-        <input type="text" class="form-control" placeholder="Search contacts" ng-model="search">
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-search"></i></div>
 
-      </div>      
-    </div>
-  </form>
+          <input type="text" class="form-control" placeholder="Search contacts" ng-model="search">
 
-  <div class="table-responsive">
-    <table class="table table-bordered table-striped table-hover">
-      <thead>
-        <tr class="info">
-          <td>First Name</td>
-          <td>Last Name</td>
-          <td>Email</td>
-          <td>Address</td>
-          <td>Phone Number</td>
-        </tr>
-      </thead>
-        <% @contacts.each do |contact| %> 
-        <tr>
-          <td><%= contact.first_name %></td>
-          <td><%= contact.last_name %></td>
-          <td><%= contact.email %></td>
-          <td><%= contact.address %></td>
-          <td><%= contact.phone_number %></td>
-        </tr>
-        <% end %>
-    </table>
-  </div>
+        </div>      
+      </div>
+    </form>
+
+    <div class="table-responsive">
+      <table class="table table-bordered table-striped table-hover">
+        <thead>
+          <tr class="info">
+            <td>#</td>
+            <td>First Name</td>
+            <td>Last Name</td>
+            <td>Email</td>
+            <td>Address</td>
+            <td>Phone Number</td>
+            <td>Show Page</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="contact in contacts | filter:search">
+            <td>{{contact.id}}</td>
+            <td>{{contact.first_name}}</td>
+            <td>{{contact.last_name}}</td>
+            <td>{{contact.email}}</td>
+            <td>{{contact.address}}</td>
+            <td>{{contact.phone_number}}</td>
+            <td><a class="btn btn-primary btn-sm" href="/contacts/{{contact.id}}" role="button">Click for more info</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!-- close table div -->
+  </div><!-- close ng-controller div -->
 
 
 </div>
