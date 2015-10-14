@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
   devise_for :users
-  root to: 'contacts#index'
   resources :contacts
+  root :to => 'contacts#index'
 
   namespace :api do 
     namespace :v1 do
