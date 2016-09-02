@@ -1,14 +1,6 @@
 class ContactsController < ApplicationController
   def index
-    @groups = Group.all
-    if params[:group]
-      @contacts = Group.find_by(name: params[:group]).contacts.where(user_id: current_user.id)
-    end
-    if user_signed_in?
-      @contacts = current_user.contacts
-    else
-      @contacts = Contact.all
-    end
+    @contacts = Contact.all
   end
 
   def new
@@ -24,7 +16,6 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @coordinates = Geocoder.coordinates(params[:address])
     @contact = Contact.new(first_name: params[:first_name], middle_name: params[:middle_name],last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], bio: params[:bio], address: params[:address], user_id: current_user.id)
     if @contact.save
       flash[:success] = "Contact sucessfully created!"

@@ -25,11 +25,10 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="/contacts">Home</a></li>
-        <li><a href="/contacts/new">Add New Contact</a></li>
-
-        
+        <li><a href="/">Home</a></li> 
+        <li><a href="/contacts/new">Add New Contact</a></li>  
       </ul>
+
       <ul class="nav navbar-nav navbar-right">
         <li><%= link_to "Sign up", "/users/sign_up" unless current_user %></li>
         <li><%= link_to "Sign in", "/users/sign_in" unless current_user %></li>
@@ -45,7 +44,7 @@
     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
     <%= message %>
   <% end %>
-</div><!-- div close nav-bar -->
+</div>
 
 
 <div class="container">
