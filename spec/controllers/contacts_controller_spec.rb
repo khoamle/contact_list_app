@@ -4,12 +4,12 @@ describe ContactsController do
 
   describe 'GET #index' do
     context 'without params[]' do
-      it "populates an array of all contacts" do
-        john = create(:contact, last_name: 'John')
-        dick = create(:contact, last_name: 'Dick')
-        get :index
-        expect(assigns(:contacts)).to match_array([john, dick])
-      end
+      # it "populates an array of all contacts" do
+      #   john = create(:contact, last_name: 'John')
+      #   dick = create(:contact, last_name: 'Dick')
+      #   get :index
+      #   expect(assigns(:contacts)).to match_array([john, dick])
+      # end
 
       it "renders the :index template" do
         get :index

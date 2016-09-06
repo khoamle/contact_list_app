@@ -16,7 +16,7 @@ class ContactsController < ApplicationController
   end
 
   def create
-    @contact = Contact.new(first_name: params[:first_name], middle_name: params[:middle_name],last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], bio: params[:bio], address: params[:address], user_id: current_user.id)
+    @contact = Contact.new(contact_params)
     if @contact.save
       flash[:success] = "Contact sucessfully created!"
       redirect_to "/contacts/#{@contact.id}"
@@ -27,7 +27,7 @@ class ContactsController < ApplicationController
 
   def update
     @contact = Contact.find_by(id: params[:id])
-    @contact.update(first_name: params[:first_name], middle_name: params[:middle_name],last_name: params[:last_name], email: params[:email], phone_number: params[:phone_number], bio: params[:bio], latitude: params[:latitude], longitude: params[:longitude], address: params[:address])
+    @contact.update(contact_params)
     if @contact.save
     flash[:success] = "Contact sucessfully updated!"
     redirect_to "/contacts/#{@contact.id}"
@@ -41,6 +41,12 @@ class ContactsController < ApplicationController
     @contact.destroy
     flash[:warning] = "Contact sucessfully deleted!"
     redirect_to "/contacts"
+  end
+
+  private
+
+  def contact_params
+    params.require(:contact).permit(:first_name, :middle_name, :last_name, :email, :phone_number, :bio, :address)
   end
 
 end
